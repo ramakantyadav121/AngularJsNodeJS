@@ -22,7 +22,7 @@ app.config(['$ocLazyLoadProvider', '$stateProvider', '$urlRouterProvider' , func
 		},
 		resolve: {
 			loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
-				return $ocLazyLoad.load(['views/loginLogout/loginController.js']); // Resolve promise and load before view 
+				return $ocLazyLoad.load(['views/loginLogout/authenticationService.js', 'views/loginLogout/loginController.js']); // Resolve promise and load before view 
 			}]
 		}
 	})

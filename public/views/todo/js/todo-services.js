@@ -1,8 +1,8 @@
-angular.module('todoService', [])
+angular.module('todoServiceModule', [])
 
 	// super simple service
 	// each function returns a promise object 
-	.factory('Todos', ['$http',function($http) {
+	.factory('todoService', ['$http',function($http) {
 		return {
 			get : function() {
 				return $http.get('/api/todos');
