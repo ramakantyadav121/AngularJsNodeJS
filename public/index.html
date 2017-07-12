@@ -1,0 +1,44 @@
+<!doctype html>
+
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<html ng-app="lazyLoadApp">
+    <head>
+        <!-- META -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
+
+        <title>Krishna PVT LTD</title>
+
+
+        <!-- Angular Js -->
+        <script src="js/angular/angular.min.js" type="text/javascript"></script>
+        <script src="js/angular/angular-ui-router.min.js" type="text/javascript"></script>
+        <script src="js/angular/ocLazyLoad.min.js" type="text/javascript"></script>
+        <!-- Angular Js end -->
+
+        <!-- Latest compiled and minified CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        
+        <!-- my custom css -->
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>
+        
+        <!-- jQuery library -->
+        <script src="css/jquery.min.js" type="text/javascript"></script>
+        
+        <!-- Latest compiled JavaScript -->
+        <script src="css/bootstrap.min.js" type="text/javascript"></script>
+        <!-- Bootstrap end -->
+        
+
+        <!-- local Angular Js -->
+        <script src="app.js"></script> <!-- load our main application -->
+
+    </head>
+    <!-- SET THE CONTROLLER -->
+    <body>
+        
+            <ui-view></ui-view>
+
+    </body>
+
+</html>
