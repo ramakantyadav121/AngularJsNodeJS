@@ -6,8 +6,12 @@
             <file>file:/E:/NetBeans%20Project/AngularJsNodeJS/public/app.js</file>
             <file>file:/E:/NetBeans%20Project/AngularJsNodeJS/public/views/loginLogout/loginController.js</file>
             <file>file:/E:/NetBeans%20Project/AngularJsNodeJS/public/views/loginLogout/authenticationService.js</file>
+            <file>file:/E:/NetBeans%20Project/AngularJsNodeJS/server.js</file>
             <file>file:/E:/NetBeans%20Project/AngularJsNodeJS/public/views/loginLogout/login.html</file>
             <file>file:/E:/NetBeans%20Project/AngularJsNodeJS/public/views/navigation.html</file>
+            <file>file:/E:/NetBeans%20Project/AngularJsNodeJS/server/routes.js</file>
+            <file>file:/E:/NetBeans%20Project/AngularJsNodeJS/server/dao/user-dao.js</file>
+            <file>file:/E:/NetBeans%20Project/AngularJsNodeJS/server/models/dbConnection.js</file>
         </group>
     </open-files>
 </project-private>
