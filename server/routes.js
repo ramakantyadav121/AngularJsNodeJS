@@ -49,7 +49,9 @@ module.exports = function (app) {
             getTodos(res);
         });
     });
-
+    
+    var usersCollection = require('./dao/user-dao.js');
+    app.get('mongodb/loginAuthentication', usersCollection.loginAuthentication);
 //    // application -------------------------------------------------------------
 //    app.get('*', function (req, res) {
 //        res.sendFile(__dirname + '/public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
