@@ -4,7 +4,7 @@ loginModule.controller('LoginController', ['$scope', '$state', '$interval', 'aut
     function ($scope, $state, $interval, authenticationService) {
         $scope.loginAuthentication = function () {
             if ($scope.userName !== undefined && $scope.password !== undefined) {
-                authenticationService.authenticateLogin()
+                authenticationService.authenticateLogin($scope.userName, $scope.password)
                         .then(function (response) {
                             var data = response.data;
                             console.log(data);

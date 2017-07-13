@@ -9,7 +9,7 @@ var methodOverride = require('method-override');
 
 // configuration ===============================================================
 //mongoose.connect('mongodb://localhost:27017/mydb'); 
-mongoose.connect('mongodb://ramakant:ramakant@ds155582.mlab.com:55582/mydb');
+//mongoose.connect('mongodb://ramakant:ramakant@ds155582.mlab.com:55582/mydb');
 
 app.use(express.static('./public')); 		// set the static files location /public/img will be /img for users
 app.use(morgan('dev')); // log every request to the console
