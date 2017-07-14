@@ -92,3 +92,8 @@
     background-color: #c0392b;
   }
 }
+
+#myNavbar
+{
+ overflow-y: scroll;
+}
