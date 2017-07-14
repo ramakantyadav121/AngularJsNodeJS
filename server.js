@@ -7,9 +7,24 @@ var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 
-// configuration ===============================================================
-//mongoose.connect('mongodb://localhost:27017/mydb'); 
-//mongoose.connect('mongodb://ramakant:ramakant@ds155582.mlab.com:55582/mydb');
+// mongodb configuration ===============================================================
+var connURL = 'mongodb://ramakant:ramakant@ds155582.mlab.com:55582/mydb';
+//var connURL = 'mongodb://localhost:27017/mydb';
+
+mongoose.connect(connURL, function(err) {
+    if (err) throw err;
+    console.log('Successfully connected to MongoDB');
+});
+
+//on node exit mongodb closes connection
+process.on('SIGINT', function() {
+  mongoose.connection.close(function () {
+    console.log('Mongoose disconnected on app termination');
+    process.exit(0);
+  });
+});
+
+// End mongodb configuration ===============================================================
 
 app.use(express.static('./public')); 		// set the static files location /public/img will be /img for users
 app.use(morgan('dev')); // log every request to the console

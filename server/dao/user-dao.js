@@ -1,11 +1,11 @@
 var mongoose = require('mongoose');
 User = require('../models/user-model.js');
 //var connStr = 'mongodb://ramakant:ramakant@ds155582.mlab.com:55582/mydb';
-var connStr = 'mongodb://localhost:27017/mydb';
-var db = mongoose.connect(connStr, function(err) {
-    if (err) throw err;
-    console.log('Successfully connected to MongoDB');
-});
+////var connStr = 'mongodb://localhost:27017/mydb';
+//var db = mongoose.connect(connStr, function(err) {
+//    if (err) throw err;
+//    console.log('Successfully connected to MongoDB');
+//});
 
 // create a user a new user
 //var testUser = new User({
@@ -33,6 +33,9 @@ exports.loginAuthentication = function (req, res) {
                 console.log('authentication', isMatch);
                 res.send(isMatch);
             });
+        }
+        else{
+            res.status(500).send('user not found');
         }
     });
 //    db.connection.close();
