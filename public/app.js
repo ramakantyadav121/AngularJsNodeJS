@@ -32,6 +32,15 @@ app.config(['$ocLazyLoadProvider', '$stateProvider', '$urlRouterProvider' , func
 			"" : {  
 				templateUrl:"views/main.html"
 			}
+		},
+                resolve: {
+			loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+                                        /*authentication files */ 
+                                        'views/loginLogout/authenticationService.js', 'views/loginLogout/loginController.js',
+                                        /* naviagation menu files*/
+                                        '/views/navigation/navigation-controller.js'
+                                    ]); // Resolve promise and load before view 
+			}]
 		}
 	})
         .state('krishna.home', {
