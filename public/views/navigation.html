@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle " data-toggle="collapse" data-target="#myNavbar">
@@ -6,29 +6,38 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span> 
             </button>
-            <a class="navbar-brand glyphicon glyphicon-home" href="#" ui-sref-active="active" ui-sref="krishna.home"></a>
+            <a class="navbar-brand glyphicon glyphicon-home" title="Home" href="#" ui-sref-active="active" ui-sref="krishna.home"></a>
             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
         </div>
 
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li><a href="#" ui-sref-active="active" ui-sref="krishna.todo">Todo</a></li>
-                <li><a href="#" ui-sref-active="active" ui-sref="krishna.about">About</a></li>
-                <li><a href="#" ui-sref-active="active" ui-sref="krishna.contact">Contact Us</a></li>
-                <li><a href="#" ui-sref-active="active" ui-sref="krishna.blog">Blog</a></li>
+                
+                <li><a  class="visible-xs" ui-sref-active="active" ui-sref="krishna.todo" data-toggle="collapse" data-target=".navbar-collapse">Todo</a>
+                    <a ui-sref-active="active" ui-sref="krishna.todo" class="hidden-xs">Todo</a></li>
+                <li><a class="visible-xs" ui-sref-active="active" ui-sref="krishna.about" data-toggle="collapse" data-target=".navbar-collapse">About</a>
+                    <a class="hidden-xs" ui-sref-active="active" ui-sref="krishna.about">About</a></li>
+                <li><a class="visible-xs" ui-sref-active="active" ui-sref="krishna.contact" data-toggle="collapse" data-target=".navbar-collapse">Contact Us</a>
+                    <a class="hidden-xs" ui-sref-active="active" ui-sref="krishna.contact" >Contact Us</a></li>
+                <li><a class="visible-xs" ui-sref-active="active" ui-sref="krishna.blog" data-toggle="collapse" data-target=".navbar-collapse">Blog</a>
+                    <a class="hidden-xs" ui-sref-active="active" ui-sref="krishna.blog">Blog</a></li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown">Page 1
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Page 1-1</a></li>
-                        <li><a href="#">Page 1-2</a></li>
+                        <li><a class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">Page 1-1</a>
+                            <a class="hidden-xs">Page 1-1</a></li>
+                        <li><a class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">Page 1-2</a>
+                            <a class="hidden-xs">Page 1-2</a></li>
                     </ul>
                 </li>
             </ul>
-
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Log out</a></li>
-            </ul>
+            <div ng-controller="LoginController">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="visible-xs" title="Log out" ng-click="logoutFromUser()" data-toggle="collapse" data-target=".navbar-collapse">Log out</a>
+                        <a title="Log out" ng-click="logoutFromUser()" class="hidden-xs">Log out</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 </nav>

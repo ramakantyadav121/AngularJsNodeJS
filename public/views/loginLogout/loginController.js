@@ -31,4 +31,19 @@ loginModule.controller('LoginController', ['$scope', '$state', '$interval', 'aut
             }
         };
         
+        //logout from terminal
+        $scope.logoutFromUser = function(){
+            if( confirm("Confirm logout ") )
+            {
+                $state.go('login');
+            }
+            else
+            {
+                $state.transitionTo( $state.current, {}, {
+                                    reload: false,
+                                    inherit: false,
+                                } );
+            }
+        }
+        
     }]);
