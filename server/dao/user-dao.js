@@ -1,11 +1,7 @@
-var mongoose = require('mongoose');
-User = require('../models/user-model.js');
-//var connStr = 'mongodb://ramakant:ramakant@ds155582.mlab.com:55582/mydb';
-////var connStr = 'mongodb://localhost:27017/mydb';
-//var db = mongoose.connect(connStr, function(err) {
-//    if (err) throw err;
-//    console.log('Successfully connected to MongoDB');
-//});
+var User = require('../models/user-model.js');
+var jsonWebToken = require('jsonwebtoken');
+var config = require('../utils/config');
+var secretkey = config.secretKey;
 
 // create a user a new user
 //var testUser = new User({
@@ -30,12 +26,25 @@ exports.loginAuthentication = function (req, res) {
             user.comparePassword(password, function (err, isMatch) {
                 if (err)
                     throw err;
-                console.log('authentication', isMatch);
-                res.send(isMatch);
+                if (isMatch) {
+                    // if user is found and password is right
+                    // create a token
+                    var token = jsonWebToken.sign(user, secretkey, {
+                        expiresIn : 60*60*24 // expires in 24 hours
+                    });
+                    // return the information including token as JSON
+                    res.json({
+                        success: true,
+                        message: 'Authentication successfull',
+                        token: token
+                    });
+                }else{
+                    res.json({ success: false, message: 'Authentication failed. Wrong password.' });
+                }
             });
         }
         else{
-            res.status(500).send('user not found');
+            res.json({ success: false, message: 'Authentication failed. User not found.' });
         }
     });
 //    db.connection.close();

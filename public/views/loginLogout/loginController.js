@@ -10,19 +10,19 @@ loginModule.controller('LoginController', ['$scope', '$state', '$interval', 'aut
                         .then(function (response) {
                             $scope.authenticationError = false;
                             $scope.message = '';
-                            var data = response.data;
-                            console.log(data);
-                            if (data)
+                            var result = response.data;
+                            console.log(result);
+                            if (result.success)
                             {
                                 $state.go("krishna.home", {});
                             } else
                             {
                                 $scope.authenticationError = true;
-                                $scope.message = "password is incorrect";
+                                $scope.message = result.message;
                             }
                         }, function (error) {
                             $scope.authenticationError = true;
-                            $scope.message = "user not found";
+                            $scope.message = "Error in fetching data";
                             console.log("error in authenticating user" + error.data);
                         });
             } else {
