@@ -40,10 +40,10 @@ app.config(['$httpProvider', '$ocLazyLoadProvider', '$stateProvider', '$urlRoute
                     resolve: {
                         loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
                                 return $ocLazyLoad.load([
+                                    '/views/navigation/navigation-controller.js',
                                     '/views/footer/footer-controller.js',
                                     'views/loginLogout/authenticationService.js',
-                                    'views/loginLogout/loginController.js',
-                                    '/views/navigation/navigation-controller.js'
+                                    'views/loginLogout/loginController.js'
                                     ]);
                             }]
                     }
@@ -84,6 +84,16 @@ app.config(['$httpProvider', '$ocLazyLoadProvider', '$stateProvider', '$urlRoute
                     resolve: {
                         loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
                                 return $ocLazyLoad.load(['views/contactus/js/contact-controller.js']); // Resolve promise and load before view 
+                            }]
+                    }
+                })
+                .state('krishna.users', {
+                    url: "/users",
+                    templateUrl: "/views/users/users.html",
+                    controller: 'userController',
+                    resolve: {
+                        loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
+                                return $ocLazyLoad.load(['views/users/user-controller.js', 'views/users/user-service.js']); // Resolve promise and load before view 
                             }]
                     }
                 })

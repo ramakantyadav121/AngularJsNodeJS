@@ -1,0 +1,27 @@
+<style>
+    table, th , td  {
+        border: 1px solid grey;
+        border-collapse: collapse;
+        padding: 5px;
+    }
+    table tr:nth-child(odd) {
+        background-color: #f1f1f1;
+    }
+    table tr:nth-child(even) {
+        background-color: #ffffff;
+    }
+</style>
+<div class="row">
+    <h3>User Information {{data.name}}</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Marks</th>
+        </tr>
+
+        <tr ng-repeat = "subject in student.subjects">
+            <td>{{ subject.name}}</td>
+            <td>{{ subject.marks}}</td>
+        </tr>
+    </table>
+</div>
