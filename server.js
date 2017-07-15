@@ -8,12 +8,15 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var config = require('./server/utils/config');
 
+//Authenticating each request by express-jwt
+var expressJWT = require('express-jwt');
+var secretkey = config.secretKey;
+
 // mongodb configuration ===============================================================
 mongoose.connect(config.databaseURL, function(err) {
     if (err) throw err;
     console.log('Successfully connected to MongoDB');
 });
-
 //on node exit mongodb closes connection
 process.on('SIGINT', function() {
   mongoose.connection.close(function () {
@@ -21,7 +24,6 @@ process.on('SIGINT', function() {
     process.exit(0);
   });
 });
-
 // End mongodb configuration ===============================================================
 
 app.use(express.static('./public')); 		// set the static files location /public/img will be /img for users
@@ -32,10 +34,13 @@ app.use(bodyParser.json({type: 'application/vnd.api+json'})); // parse applicati
 app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-Method-Override header in the request
 app.use(function(req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization');
     next();
 });
+
+//req authorisation of token
+app.use(expressJWT({secret: secretkey}).unless({path:['/mongodb/loginAuthentication']}));
 
 // routes ======================================================================
 require('./server/routes.js')(app);
