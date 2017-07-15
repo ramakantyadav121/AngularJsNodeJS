@@ -93,7 +93,21 @@
   }
 }
 
-#myNavbar
-{
- overflow-y: scroll;
+@media screen and (orientation:portrait) {
+    /* Portrait styles here */
+    #myNavbar
+    {
+        overflow-y: scroll;
+        max-height: 350px;
+    }
+}
+
+/* Landscape */
+@media screen and (orientation:landscape) {
+   /* Landscape styles here */
+   #myNavbar
+    {
+        overflow-y: scroll;
+        max-height: 200px;
+    }
 }

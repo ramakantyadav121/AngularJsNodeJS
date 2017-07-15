@@ -1,7 +1,7 @@
 var app = angular.module('lazyLoadApp', ['ui.router', 'oc.lazyLoad']);
 
 app.config(['$httpProvider', '$ocLazyLoadProvider', '$stateProvider', '$urlRouterProvider', function ($httpProvider, $ocLazyLoadProvider, $stateProvider, $urlRouterProvider) {
-
+        
         //add interceptor to add token with every request
         $httpProvider.interceptors.push('authInterceptor');
 
@@ -26,7 +26,7 @@ app.config(['$httpProvider', '$ocLazyLoadProvider', '$stateProvider', '$urlRoute
                     },
                     resolve: {
                         loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
-                                return $ocLazyLoad.load(['views/loginLogout/authenticationService.js', 'views/loginLogout/loginController.js']); // Resolve promise and load before view 
+                                return $ocLazyLoad.load(['views/loginLogout/authenticationService.js', 'views/loginLogout/loginController.js', '/views/footer/footer-controller.js']); // Resolve promise and load before view 
                             }]
                     }
                 })
@@ -40,9 +40,11 @@ app.config(['$httpProvider', '$ocLazyLoadProvider', '$stateProvider', '$urlRoute
                     resolve: {
                         loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
                                 return $ocLazyLoad.load([
+                                    '/views/footer/footer-controller.js',
                                     'views/loginLogout/authenticationService.js',
                                     'views/loginLogout/loginController.js',
-                                    '/views/navigation/navigation-controller.js']);
+                                    '/views/navigation/navigation-controller.js'
+                                    ]);
                             }]
                     }
                 })
