@@ -29,22 +29,22 @@ exports.loginAuthentication = function (req, res) {
                 if (isMatch) {
                     // if user is found and password is right
                     // create a token
-                    var token = jsonWebToken.sign(user, secretkey, {
+                    var accessToken = jsonWebToken.sign(user, secretkey, {
                         expiresIn : 60*60*24 // expires in 24 hours
                     });
                     // return the information including token as JSON
                     res.json({
-                        success: true,
+                        authsuccess: true,
                         message: 'Authentication successfull',
-                        token: token
+                        authToken: accessToken
                     });
                 }else{
-                    res.json({ success: false, message: 'Authentication failed. Wrong password.' });
+                    res.json({ authsuccess: false, message: 'Authentication failed. Wrong password.' });
                 }
             });
         }
         else{
-            res.json({ success: false, message: 'Authentication failed. User not found.' });
+            res.json({ authsuccess: false, message: 'Authentication failed. User not found.' });
         }
     });
 //    db.connection.close();

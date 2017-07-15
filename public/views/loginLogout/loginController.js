@@ -11,9 +11,9 @@ loginModule.controller('LoginController', ['$scope', '$state', '$interval', 'aut
                             $scope.authenticationError = false;
                             $scope.message = '';
                             var result = response.data;
-                            console.log(result);
-                            if (result.success)
+                            if (result.authsuccess)
                             {
+                                window.localStorage.setItem("authToken", result.authToken);
                                 $state.go("krishna.home", {});
                             } else
                             {
@@ -34,16 +34,17 @@ loginModule.controller('LoginController', ['$scope', '$state', '$interval', 'aut
         //logout from terminal
         $scope.logoutFromUser = function(){
             if( confirm("Confirm logout ") )
-            {
+            {   
+                window.localStorage.removeItem("authToken");
                 $state.go('login');
             }
             else
             {
                 $state.transitionTo( $state.current, {}, {
                                     reload: false,
-                                    inherit: false,
+                                    inherit: false
                                 } );
             }
-        }
+        };
         
     }]);

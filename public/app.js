@@ -1,7 +1,7 @@
 var app = angular.module('lazyLoadApp', ['ui.router', 'oc.lazyLoad']);
 
-app.config(['$ocLazyLoadProvider', '$stateProvider', '$urlRouterProvider' , function($ocLazyLoadProvider, $stateProvider, $urlRouterProvider) {
-	$urlRouterProvider.when('', "/login");
+app.config(['$httpProvider', '$ocLazyLoadProvider', '$stateProvider', '$urlRouterProvider' , function($httpProvider, $ocLazyLoadProvider, $stateProvider, $urlRouterProvider) {
+        $urlRouterProvider.when('', "/login");
         $urlRouterProvider.otherwise("/error");
 	
 	//Config For ocLazyLoading
@@ -102,4 +102,21 @@ app.config(['$ocLazyLoadProvider', '$stateProvider', '$urlRouterProvider' , func
 			}
 		}
 	});
+        $httpProvider.interceptors.push(function($q, $window) {
+  return {
+   request: function (config){
+        config.headers = config.headers || {};
+        if(localStorage.getItem('authToken')){
+            var token = config.headers.Authorization = 'Bearer ' + localStorage.getItem('authToken');
+        }
+        return config;
+    },
+    responseError: function(response){
+        if(response.status === 401 || response.status === 403) {
+            $window.location.href = "http://localhost:8080";
+        }
+        return $q.reject(response);
+    }
+  };
+});
 }]);
