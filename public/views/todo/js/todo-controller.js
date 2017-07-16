@@ -1,7 +1,8 @@
 angular.module('todoModule', [])
 
 	// inject the Todo service factory into our controller
-	.controller('TodoController', ['$scope','$http','todoService', function($scope, $http, todoService) {
+	.controller('TodoController', ['$scope','$http','todoService','authenticationService', function($scope, $http, todoService, authenticationService) {
+                authenticationService.checkAuthentication();
 		$scope.formData = {};
 		$scope.loading = true;
 

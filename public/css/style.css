@@ -111,3 +111,31 @@
         max-height: 200px;
     }
 }
+
+.flex-container {
+    display: -webkit-flex;
+    display: flex;  
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    text-align: center;
+}
+
+.flex-container > * {
+    padding: 15px;
+    -webkit-flex: 1 100%;
+    flex: 1 100%;
+}
+
+.button-block{
+    padding: 6px;
+    margin-bottom: 5px;
+    border: 1px black solid;
+    border-radius: 4px;    
+}
+
+    .btn-group.btn-block {
+    display: table;
+}
+.btn-group.btn-block > .btn {
+    display: table-cell;
+}

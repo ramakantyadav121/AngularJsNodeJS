@@ -4,8 +4,16 @@ app.config(['$httpProvider', '$ocLazyLoadProvider', '$stateProvider', '$urlRoute
         
         //add interceptor to add token with every request
         $httpProvider.interceptors.push('authInterceptor');
-
-        $urlRouterProvider.when('', "/login");
+        
+        //If auth token already present in browser
+        if(localStorage.getItem('authToken') )
+        {
+            $urlRouterProvider.when('', "/krishna/todo");
+        }
+        else{
+            $urlRouterProvider.when('', "/login");
+        }
+        
         $urlRouterProvider.otherwise("/error");
 
         //Config For ocLazyLoading
@@ -132,7 +140,7 @@ app.factory('authInterceptor', function ($q, $window) {
         },
         responseError: function (response) {
             if (response.status === 401 || response.status === 403) {
-                $window.location.href = "http://localhost:8080";
+                $window.location.href = window.location.protocol + '//' + window.location.host;
             }
             return $q.reject(response);
         }

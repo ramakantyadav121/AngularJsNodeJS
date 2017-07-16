@@ -3,9 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/NetBeans%20Project/AngularJsNodeJS/public/views/users/users.html</file>
-            <file>file:/E:/NetBeans%20Project/AngularJsNodeJS/public/views/users/user-controller.js</file>
+            <file>file:/E:/NetBeans%20Project/AngularJsNodeJS/public/app.js</file>
+            <file>file:/E:/NetBeans%20Project/AngularJsNodeJS/public/views/loginLogout/loginController.js</file>
+            <file>file:/E:/NetBeans%20Project/AngularJsNodeJS/public/views/loginLogout/authenticationService.js</file>
             <file>file:/E:/NetBeans%20Project/AngularJsNodeJS/public/views/users/user-service.js</file>
+            <file>file:/E:/NetBeans%20Project/AngularJsNodeJS/public/views/main.html</file>
+            <file>file:/E:/NetBeans%20Project/AngularJsNodeJS/server/routes.js</file>
+            <file>file:/E:/NetBeans%20Project/AngularJsNodeJS/public/css/style.css</file>
+            <file>file:/E:/NetBeans%20Project/AngularJsNodeJS/public/views/users/users.html</file>
+            <file>file:/E:/NetBeans%20Project/AngularJsNodeJS/public/index.html</file>
+            <file>file:/E:/NetBeans%20Project/AngularJsNodeJS/public/views/loginLogout/login.html</file>
+            <file>file:/E:/NetBeans%20Project/AngularJsNodeJS/public/views/users/user-controller.js</file>
+            <file>file:/E:/NetBeans%20Project/AngularJsNodeJS/server/dao/user-dao.js</file>
+            <file>file:/E:/NetBeans%20Project/AngularJsNodeJS/public/views/todo/js/todo-controller.js</file>
         </group>
     </open-files>
 </project-private>

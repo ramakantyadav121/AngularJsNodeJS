@@ -11,17 +11,34 @@
         background-color: #ffffff;
     }
 </style>
-<div class="row">
-    <h3>User Information {{data.name}}</h3>
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Marks</th>
-        </tr>
 
-        <tr ng-repeat = "subject in student.subjects">
-            <td>{{ subject.name}}</td>
-            <td>{{ subject.marks}}</td>
-        </tr>
+<div class="jumbotron button-block">
+    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default">Left</button>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default">Middle</button>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default">Right</button>
+        </div>
+    </div>
+</div>
+<div>
+    <table id="tableId" style="width: 100%; text-align: left; overflow-y: scroll;display:block;">
+        <tbody>
+            <tr>
+                <th>Student Name</th>
+                <th>Name</th>
+                <th>Marks</th>
+            </tr>
+
+            <tr ng-repeat = "subject in student.subjects">
+                <td>{{ subject.student}}</td>
+                <td>{{ subject.name}}</td>
+                <td>{{ subject.marks}}</td>
+            </tr>
+        </tbody>
     </table>
 </div>

@@ -1,5 +1,5 @@
 angular.module('authService', [])
-        .factory('authenticationService', ['$http', function ($http) {
+        .factory('authenticationService', ['$http', '$state', function ($http, $state) {
 //                var tokenClaims = getClaimsFromToken();
 //                function urlBase64Decode(str) {
 //                    var output = str.replace('-', '+').replace('_', '/');
@@ -35,7 +35,23 @@ angular.module('authService', [])
                         data: {username:user, password:password}
                     });
                 };
-                return {authenticateLogin: authenticateLogin,
+                
+                var checkAuthentication = function () {
+                    $http({
+                        method: 'POST',
+                        url: '/mongodb/checkAuthentication'
+                    }).then(function (rsponse) {
+                        return true;
+                    }, function (error) {
+                        window.localStorage.removeItem("authToken");
+                        $state.go('login');
+                        return false;
+                    });
+                };
+                
+                return {
+                    authenticateLogin: authenticateLogin,
+                    checkAuthentication: checkAuthentication,
                     logout: function (success) {
 //                        tokenClaims = {};
 //                        delete $localStorage.authToken;;

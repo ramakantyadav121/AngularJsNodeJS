@@ -30,7 +30,7 @@ exports.loginAuthentication = function (req, res) {
                     // if user is found and password is right
                     // create a token
                     var accessToken = jsonWebToken.sign(user, secretkey, {
-                        expiresIn : 60*60*1 // expires in 24 hours
+                        expiresIn : 60*1 // expires in 24 hours
                     });
                     // return the information including token as JSON
                     res.json({
@@ -50,3 +50,7 @@ exports.loginAuthentication = function (req, res) {
 //    db.connection.close();
 };
 
+//check authentication
+exports.checkAuthentication = function(req, res){
+    res.json("success");
+};
