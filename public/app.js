@@ -105,16 +105,13 @@ app.config(['$httpProvider', '$ocLazyLoadProvider', '$stateProvider', '$urlRoute
                             }]
                     }
                 })
-                .state('krishna.about', {
-                    url: "/about",
-                    views: {
-                        "": {
-                            templateUrl: "views/about/view/about.html"
-                        }
-                    },
+                .state('krishna.orderBook', {
+                    url: "/orderbook",
+                    controller: "orderController",
+                    templateUrl: "views/orderBook/view/order.html",
                     resolve: {
                         loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
-                                return $ocLazyLoad.load(['views/about/js/about-controller.js']); // Resolve promise and load before view 
+                                return $ocLazyLoad.load(['views/orderBook/js/order-controller.js']); // Resolve promise and load before view 
                             }]
                     }
                 })
