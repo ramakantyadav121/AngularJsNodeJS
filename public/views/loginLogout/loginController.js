@@ -3,6 +3,10 @@ var loginModule = angular.module('LoginModule', []);
 loginModule.controller('LoginController', ['$scope', '$state', '$interval', 'authenticationService',
     function ($scope, $state, $interval, authenticationService) {
         
+        if(window.localStorage.getItem('authToken'))
+        {
+            $state.go("krishna.todo", {});
+        }
         //authenticate login 
         $scope.loginAuthentication = function () {
             if ($scope.userName !== undefined && $scope.password !== undefined) {

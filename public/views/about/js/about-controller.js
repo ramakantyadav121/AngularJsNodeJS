@@ -1,4 +1,5 @@
 angular.module('AboutModule',[])
-	.controller('AboutController', function(){
+	.controller('AboutController', function(authenticationService){
+            authenticationService.checkAuthentication();
 		console.log('AboutController');
 	});

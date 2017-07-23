@@ -1,6 +1,7 @@
 angular.module('userModule', [])
-        .controller('userController', ['$scope',
-            function ($scope) {
+        .controller('userController', ['$scope', 'authenticationService',
+            function ($scope, authenticationService) {
+                authenticationService.checkAuthentication();
                 $scope.data = {name:"rama", role: "admin"};
                 $scope.student = {
                firstName: "Mahesh",

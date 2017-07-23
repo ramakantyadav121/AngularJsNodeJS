@@ -1,5 +1,6 @@
 angular.module('orderModule', ['smart-table'])
-        .controller('orderController', function ($scope, orderService) {
+        .controller('orderController', function ($scope, authenticationService, orderService) {
+            authenticationService.checkAuthentication();
             console.log('AboutController');
             $scope.name= 'radhe';
         })

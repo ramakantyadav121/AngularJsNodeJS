@@ -1,5 +1,6 @@
 angular.module('HomeModule',[])
-	.controller('HomeController', function(){
+	.controller('HomeController', function(authenticationService){
+            authenticationService.checkAuthentication();
 		console.log('HomeController');
 	});
 
