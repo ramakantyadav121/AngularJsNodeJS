@@ -1,3 +1,8 @@
-<div class="jumbotron">
-  <h3>About Information</h3>
+<div class="row" style="background-color: beige; padding-top: 5px; margin-bottom: 0px; padding-bottom: 0px">
+    <button type="button" ng-click="addNewOrder()" class="btn btn-success pull-left m-b m-l"><i class="glyphicon glyphicon-plus"></i> New order</button>
+</div>
+<div id='orderId' class="p-t" style="border: 2px solid; margin-left: -14px; margin-right: -14px; overflow-y: scroll">
+    <div ng-repeat="o in order" class="col-md-4">
+        <order-book></order-book>
+    </div>
 </div>

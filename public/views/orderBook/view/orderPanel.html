@@ -1,0 +1,25 @@
+<div class="panel panel-success text-left">
+    <div class="panel-heading">
+        <h4>{{o.name}}
+        <strong class="pull-right"> Date: {{o.moNumber}}</strong></h4>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-sm-4"><strong>Name:</strong></div>
+            <div class="col-sm-7">{{o.name}}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4"><strong>Contact:</strong></div>
+            <div class="col-sm-7">{{o.moNumber}}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4"><strong>Items:</strong></div>
+            <div class="" ng-repeat="item in o.items">
+                <div class="col-sm-2"><strong>Name:</strong></div>
+                <div class="col-sm-2">{{item.name}}</div>
+                <div class="col-sm-2"><strong>Quantity:</strong></div>
+                <div class="col-sm-2">{{item.quantity}}</div>
+            </div>
+        </div>
+    </div>
+</div>  

@@ -139,3 +139,16 @@
 .btn-group.btn-block > .btn {
     display: table-cell;
 }
+
+.m-b{
+    margin-bottom: 10px;
+}
+.m-l{
+    margin-left: 15px;
+}
+.p-t{
+    padding-top: 10px;
+}
+.bottom {
+    border-bottom: 1px solid #ccc;
+}

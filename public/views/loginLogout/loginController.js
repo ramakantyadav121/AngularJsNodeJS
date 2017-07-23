@@ -5,7 +5,7 @@ loginModule.controller('LoginController', ['$scope', '$state', '$interval', 'aut
         
         if(window.localStorage.getItem('authToken'))
         {
-            $state.go("krishna.todo", {});
+//            $state.go("krishna.todo", {});
         }
         //authenticate login 
         $scope.loginAuthentication = function () {
